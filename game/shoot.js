@@ -60,9 +60,13 @@ function player_collision()
     //collision between player and walls
     var x = player1.graphic.position.x + WIDTH / 2;
     var y = player1.graphic.position.y + HEIGHT / 2;
-
+    
+//  - [X] : As a player, I want to be stop when I go into the left wall
+    if ( x < 0 )
+        player1.graphic.position.x -= x ;
     if ( x > WIDTH )
         player1.graphic.position.x -= x - WIDTH;
+
     if ( y < 0 )
         player1.graphic.position.y -= y;
     if ( y > HEIGHT )
@@ -81,6 +85,7 @@ function player_falling()
     var element = null;
 
     for (var i = 0; i < length; i++) {
+
         element = noGround[i];
 
         var tileX = (element[0]) | 0;
